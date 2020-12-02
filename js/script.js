@@ -1,7 +1,7 @@
 const app = new Vue ({
   el: '#root',
   data: {
-    searchInput: 'f',
+    searchInput: '',
     movies: []
   },
   mounted: function () {
@@ -15,7 +15,10 @@ const app = new Vue ({
             query: this.searchInput
           }
         })
-        .then(result => console.log(result))
+        .then((result) => {
+          this.movies = result.data.results;
+          console.log(result.data.results);
+        })
       }
-  }
+    }
 })
