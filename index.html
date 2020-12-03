@@ -12,6 +12,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<!-- Css -->
 		<link rel="stylesheet" href="css/style.css">
+		<!-- Font Awesome 5.15.1 (CDN) -->
+	 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 	</head>
 	<body>
 
@@ -21,17 +23,17 @@
 			<div class="input-group mb-3">
   			<input v-model='searchInput' type="text" class="form-control" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2">
   			<div class="input-group-append">
-    		<button @click.enter='getMovies' class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    		<button @click='getMovies' class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
   			</div>
 			</div>
 			<template v-for='film in movies'>
 				<div class="card" style="width: 18rem;">
-						<img :src="'https://image.tmdb.org/t/p/w500/' + film.poster_path" class="card-img-top" alt="...">
+						<img :src="'https://image.tmdb.org/t/p/w500/' + film.poster_path" class="card-img-top" alt="Copertina Film">
 						<div class="card-body">
-							<h2>{{ film.title }}</h2>
-							<h4>{{ film.original_title }}</h4>
-							<h6>{{ film.original_language }}</h6>
-							<p class="card-text">{{ film.vote_average }}</p>
+							<h4>{{ film.title }}</h4>
+							<h6>{{ film.original_title }}</h6>
+							<img src="" alt="">Lenguage: {{ film.original_language }} <br>
+							<p v-for='n in calcStar(film.vote_average)' class="card-text"><i class="fas fa-star"></i></p>
 						</div>
 				</div>
 			</template>

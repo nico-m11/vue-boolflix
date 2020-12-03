@@ -2,7 +2,8 @@ const app = new Vue ({
   el: '#root',
   data: {
     searchInput: '',
-    movies: []
+    movies: [],
+    vote: '',
   },
   mounted: function () {
     this.getMovies()
@@ -19,6 +20,9 @@ const app = new Vue ({
           this.movies = result.data.results;
           console.log(result.data.results);
         })
-      }
+      },
+      calcStar(n) {
+        return Math.ceil(n / 2)
+      },
     }
 })
