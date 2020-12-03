@@ -25,3 +25,9 @@ body {
 .card-text > i {
   color: yellow;
 }
+
+.bandiera-lingua {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}

@@ -7,6 +7,7 @@ const app = new Vue ({
   },
   mounted: function () {
     this.getMovies()
+    this.changeImg()
   },
   methods: {
       getMovies() {
@@ -24,5 +25,13 @@ const app = new Vue ({
       calcStar(n) {
         return Math.ceil(n / 2)
       },
+      lenguageDefault:
+       (l) => {
+        return l.target.src = 'bandiere/notfound.png';
+      },
+      imgDefault:
+       (l) => {
+        return l.target.src = 'img/notfound.png';
+      }
     }
 })
