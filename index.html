@@ -21,7 +21,7 @@
 			<img class="logo" src="img/pezzotto.png" alt="">
 			<h1 class="titles">Cerca il tuo film o serie tv</h1>
 			<div class="input-group mb-3">
-  			<input v-model='searchInput' type="text" class="form-control" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2">
+  			<input @keyup.enter='getMovies' v-model='searchInput' type="text" class="form-control" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2">
   			<div class="input-group-append">
     		<button @click='getMovies' class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
   			</div>

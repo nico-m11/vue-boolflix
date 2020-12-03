@@ -20,6 +20,16 @@ const app = new Vue ({
         .then((result) => {
           this.movies = result.data.results;
           console.log(result.data.results);
+        }),
+        axios.get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            api_key: "871cee00d0a867c5177dcdfba199cbc4",
+            query: this.searchInput
+          }
+        })
+        .then((result) => {
+          this.movies = result.data.results;
+          console.log(result.data.results);
         })
       },
       calcStar(n) {
