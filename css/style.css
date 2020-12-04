@@ -1,8 +1,16 @@
 body {
-  background-color: lightblue;
+  background-color: #323333;
+  font-family: 'Roboto', sans-serif;
 }
 .input-group {
-  margin-top: 20px;
+  margin-top: 30px;
+  width: 30%;
+}
+.input-group > input {
+  border: none;
+  border-bottom: 1px solid red;
+  color: white;
+  background-color: #323333;
 }
 .titles {
   margin-left: 110px;
@@ -13,7 +21,7 @@ body {
   margin: 20px;
 }
 .logo {
-  height: 150px;
+  height: 100px;
 }
 .container {
   margin-top: 50px;
@@ -30,4 +38,22 @@ body {
   height: 30px;
   width: 30px;
   margin-right: 5px;
+}
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.navbar-nav-scroll {
+  margin-top: 35px;
+  margin-right: 200px;
+}
+.btn {
+  height: 38px;
+  border: none;
+}
+.nav-item > a {
+padding: 8px;
+color: red;
+font-size: 18px;
 }

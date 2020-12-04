@@ -14,24 +14,37 @@
 		<link rel="stylesheet" href="css/style.css">
 		<!-- Font Awesome 5.15.1 (CDN) -->
 	 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	</head>
 	<body>
 
 		<div id="root" class="container d-flex flex-wrap">
-			<img class="logo" src="img/pezzotto.png" alt="">
-			<h1 class="titles">Cerca il tuo film o serie tv</h1>
-			<div class="input-group mb-3">
-  			<input @keyup.enter='getMovies' v-model='searchInput' type="text" class="form-control" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2">
-  			<div class="input-group-append">
-    		<button @click='getMovies' class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-  			</div>
-			</div>
+ 			<nav class="container-header">
+				<img class="logo" src="img/logo.png" alt="">
+				<div class="navbar-nav-scroll">
+					<ul class="navbar-nav bd-navbar-nav flex-row">
+						<li class="nav-item"><a href="#">Kids</a></li>
+						<li class="nav-item"><a href="#">New Film</a></li>
+						<li class="nav-item"><a href="#">New Series</a></li>
+						<li class="nav-item"><a href="#">My favorite list</a></li>
+					</ul>
+				</div>
+
+				<div class="input-group mb-3">
+					<input @keyup.enter='getMovies' v-model='searchInput' type="text" class="form-control" placeholder="Cerca un Film o serie Tv">
+					<div class="input-group-append">
+						<button @click='getMovies' class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+			</nav>
+
 			<template v-for='film in movies'>
 				<div class="card" style="width: 18rem;">
 						<img @error='imgDefault' :src="'https://image.tmdb.org/t/p/w500/' + film.poster_path" class="card-img-top" alt="Copertina Film">
 						<div class="card-body">
-							<h4>{{ film.title }}</h4>
-							<h6>{{ film.original_title }}</h6>
+							<h4>{{ film.title || film.name }}</h4>
+							<h6>{{ film.original_title || film.original_name }}</h6>
 							<span><img @error='lenguageDefault' class="bandiera-lingua" :src="'bandiere/' + film.original_language + '.png'" alt="">Language: {{ film.original_language }}</span><br>
 							<p v-for='n in calcStar(film.vote_average)' class="card-text"><i class="fas fa-star"></i></p>
 						</div>
