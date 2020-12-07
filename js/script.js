@@ -3,11 +3,19 @@ const app = new Vue ({
   data: {
     searchInput: '',
     movies: [],
-    vote: '',
+
   },
   mounted: function () {
-    this.getMovies()
-    this.changeImg()
+    this.getMovies(),
+      axios.get("https://api.themoviedb.org/3/movie/popular",{
+        params: {
+          api_key: "871cee00d0a867c5177dcdfba199cbc4",
+        }
+      })
+      .then((result) => {
+        this.movies = result.data.results;
+        console.log(result.data.results);
+      })
   },
   methods: {
       getMovies() {

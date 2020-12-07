@@ -57,3 +57,19 @@ padding: 8px;
 color: red;
 font-size: 18px;
 }
+.card-img-overlay {
+  display: none;
+  color: red;
+  background-color: #6b6b6b;
+  font-size: 1.8rem;
+  transform: translate(-50% -50%);
+  text-align: center;
+  padding-top: 10px;
+}
+.img-fluid:hover > .card-img-overlay{
+  display: block;
+}
+
+.card-img-overlay > p {
+  font-size: 15px;
+}

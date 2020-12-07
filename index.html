@@ -30,7 +30,6 @@
 						<li class="nav-item"><a href="#">My favorite list</a></li>
 					</ul>
 				</div>
-
 				<div class="input-group mb-3">
 					<input @keyup.enter='getMovies' v-model='searchInput' type="text" class="form-control" placeholder="Cerca un Film o serie Tv">
 					<div class="input-group-append">
@@ -39,18 +38,25 @@
 				</div>
 			</nav>
 
+
+
 			<template v-for='film in movies'>
-				<div class="card" style="width: 18rem;">
-						<img @error='imgDefault' :src="'https://image.tmdb.org/t/p/w500/' + film.poster_path" class="card-img-top" alt="Copertina Film">
-						<div class="card-body">
-							<h4>{{ film.title || film.name }}</h4>
-							<h6>{{ film.original_title || film.original_name }}</h6>
-							<span><img @error='lenguageDefault' class="bandiera-lingua" :src="'bandiere/' + film.original_language + '.png'" alt="">Language: {{ film.original_language }}</span><br>
-							<p v-for='n in calcStar(film.vote_average)' class="card-text"><i class="fas fa-star"></i></p>
-						</div>
+				<div class="card img-fluid" style="width:500px">
+					<img @error='imgDefault' :src="'https://image.tmdb.org/t/p/w500/' + film.poster_path" class="card-img-top" alt="Copertina Film">
+					<div class="card-img-overlay">
+						<h2>{{ film.title || film.name }}</h2>
+						<h4>{{ film.original_title || film.original_name }}</h4>
+						<span><img @error='lenguageDefault' class="bandiera-lingua" :src="'bandiere/' + film.original_language + '.png'" alt="">Language: {{ film.original_language }}</span><br>
+						<p v-for='n in calcStar(film.vote_average)' class="card-text"><i class="fas fa-star"></i></p>
+						<p>{{ film.overview || film.overview}}</p>
+					</div>
 				</div>
 			</template>
 		</div>
+
+
+
+
 
 		<!-- Custom JS -->
 		<script src="js/script.js" charset="utf-8"></script>
