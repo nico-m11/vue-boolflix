@@ -19,18 +19,18 @@
 	</head>
 	<body>
 
-		<div id="root" class="container d-flex flex-wrap">
+		<div id="root" class="container d-flex flex-wrap"> <!-- link for Vue -->
  			<nav class="container-header">
 				<img class="logo" src="img/logo.png" alt="">
 				<div class="navbar-nav-scroll">
-					<ul class="navbar-nav bd-navbar-nav flex-row">
+					<ul class="navbar-nav bd-navbar-nav flex-row"> <!-- nav-bar Header -->
 						<li class="nav-item"><a href="#">Kids</a></li>
 						<li class="nav-item"><a href="#">New Film</a></li>
 						<li class="nav-item"><a href="#">New Series</a></li>
 						<li class="nav-item"><a href="#">My favorite list</a></li>
 					</ul>
 				</div>
-				<div class="input-group mb-3">
+				<div class="input-group mb-3"> <!-- searchBar -->
 					<input @keyup.enter='getMovies' v-model='searchInput' type="text" class="form-control" placeholder="Cerca un Film o serie Tv">
 					<div class="input-group-append">
 						<button @click='getMovies' class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-search"></i></button>
@@ -39,7 +39,7 @@
 			</nav>
 
 
-
+<!-- main Home Page -->
 			<template v-for='film in movies'>
 				<div class="card img-fluid" style="width:500px">
 					<img @error='imgDefault' :src="'https://image.tmdb.org/t/p/w500/' + film.poster_path" class="card-img-top" alt="Copertina Film">
@@ -54,6 +54,30 @@
 			</template>
 		</div>
 
+<!-- footer -->
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 cent">
+				<h6>Created By</h6>
+				<h4>Nicola Melito</h4>
+				<p>Sede Legale in Italy</p>
+				<span>Via Antonio Labriola SNC,</span>
+				<span>Cap: 80145,</span>
+				<span>Napoli (NA) - Campania</span>
+			</div>
+			<div class="col-xs-6 right">
+				<h5>Contact-social</h5>
+				<span>Instagram: Nico-M <i class="fab fa-instagram"></i></span> <br>
+				<span>Facabook: Nico-M <i class="fab fa-facebook"></i></span> <br>
+				<span>GitHub: Nico-M <i class="fab fa-github"></i></span> <br>
+				<span>E-mail: nicola@mail.it <i class="far fa-envelope"></i></span> <br>
+				<span>Twitter: Nico-M <i class="fab fa-twitter"></i></span>
+			</div>
+		</div>
+	</div>
+</footer>
 
 
 

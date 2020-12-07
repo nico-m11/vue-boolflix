@@ -5,7 +5,7 @@ const app = new Vue ({
     movies: [],
 
   },
-  mounted: function () {
+  mounted: function () { //home page movies
     this.getMovies(),
       axios.get("https://api.themoviedb.org/3/movie/popular",{
         params: {
@@ -18,7 +18,7 @@ const app = new Vue ({
       })
   },
   methods: {
-      getMovies() {
+      getMovies() { // search Movies
         axios.get("https://api.themoviedb.org/3/search/movie",{
           params: {
             api_key: "871cee00d0a867c5177dcdfba199cbc4",
@@ -29,7 +29,7 @@ const app = new Vue ({
           this.movies = result.data.results;
           console.log(result.data.results);
         }),
-        axios.get("https://api.themoviedb.org/3/search/tv", {
+        axios.get("https://api.themoviedb.org/3/search/tv", { // search Tv Show
           params: {
             api_key: "871cee00d0a867c5177dcdfba199cbc4",
             query: this.searchInput
@@ -40,15 +40,15 @@ const app = new Vue ({
           console.log(result.data.results);
         })
       },
-      calcStar(n) {
+      calcStar(n) { // calc star Vote
         return Math.ceil(n / 2)
       },
       lenguageDefault:
-       (l) => {
+       (l) => {       // lenguageBandier not notfound
         return l.target.src = 'bandiere/notfound.png';
       },
       imgDefault:
-       (l) => {
+       (l) => {    // ImgBandier not notfou
         return l.target.src = 'img/notfound.png';
       }
     }

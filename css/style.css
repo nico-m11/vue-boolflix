@@ -73,3 +73,17 @@ font-size: 18px;
 .card-img-overlay > p {
   font-size: 15px;
 }
+
+footer {
+  width: 100%;
+  background: radial-gradient(circle, rgba(252,0,5,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.cent {
+  margin-left: 120px;
+  margin-top: 15px;
+}
+.right {
+  margin-left: 120px;
+  margin-top: 15px;
+}
